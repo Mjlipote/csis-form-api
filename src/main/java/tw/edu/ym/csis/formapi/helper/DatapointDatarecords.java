@@ -1,5 +1,6 @@
 package tw.edu.ym.csis.formapi.helper;
 
+import static com.google.common.base.Preconditions.checkNotNull;
 import static net.sf.rubycollect4j.RubyCollections.ra;
 
 import java.sql.Connection;
@@ -37,7 +38,7 @@ public final class DatapointDatarecords
   private final SqlSessionFactory sessionFactory;
 
   public DatapointDatarecords(SqlSessionFactory main) {
-    sessionFactory = main;
+    sessionFactory = checkNotNull(main);
   }
 
   public Long newId() {

@@ -1,5 +1,7 @@
 package tw.edu.ym.csis.formapi.helper;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -32,8 +34,8 @@ public final class Patients extends
   private final SqlSessionFactory meta;
 
   public Patients(SqlSessionFactory main, SqlSessionFactory meta) {
-    sessionFactory = main;
-    this.meta = meta;
+    sessionFactory = checkNotNull(main);
+    this.meta = checkNotNull(meta);
   }
 
   public Long newId() {

@@ -1,5 +1,6 @@
 package tw.edu.ym.csis.formapi.helper;
 
+import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.collect.Lists.newArrayList;
 import static net.sf.rubycollect4j.RubyCollections.ra;
 
@@ -28,8 +29,8 @@ public final class Datapoints extends
   private final SqlSessionFactory meta;
 
   public Datapoints(SqlSessionFactory main, SqlSessionFactory meta) {
-    sessionFactory = main;
-    this.meta = meta;
+    sessionFactory = checkNotNull(main);
+    this.meta = checkNotNull(meta);
   }
 
   public List<Datapoint> findAllByQuesyions(List<Question> questions) {

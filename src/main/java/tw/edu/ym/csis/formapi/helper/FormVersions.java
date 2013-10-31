@@ -1,5 +1,7 @@
 package tw.edu.ym.csis.formapi.helper;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import tw.edu.ym.csis.maindb.dao.FormVersionMapper;
@@ -19,7 +21,7 @@ public final class FormVersions extends
   private final SqlSessionFactory sessionFactory;
 
   public FormVersions(SqlSessionFactory main) {
-    sessionFactory = main;
+    sessionFactory = checkNotNull(main);
   }
 
   public FormVersion findById(final Long id) {

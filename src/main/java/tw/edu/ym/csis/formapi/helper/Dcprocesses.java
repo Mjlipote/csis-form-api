@@ -1,5 +1,7 @@
 package tw.edu.ym.csis.formapi.helper;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -23,7 +25,7 @@ public final class Dcprocesses extends
   private final SqlSessionFactory sessionFactory;
 
   public Dcprocesses(SqlSessionFactory main) {
-    sessionFactory = main;
+    sessionFactory = checkNotNull(main);
   }
 
   public Dcprocess findByFormVersion(FormVersion formVersion) {

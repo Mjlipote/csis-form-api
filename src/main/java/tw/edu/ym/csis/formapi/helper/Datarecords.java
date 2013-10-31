@@ -1,5 +1,7 @@
 package tw.edu.ym.csis.formapi.helper;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -33,7 +35,7 @@ public final class Datarecords extends
   private final SqlSessionFactory sessionFactory;
 
   public Datarecords(SqlSessionFactory main) {
-    sessionFactory = main;
+    sessionFactory = checkNotNull(main);
   }
 
   public Long newId() {

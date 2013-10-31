@@ -1,5 +1,7 @@
 package tw.edu.ym.csis.formapi.helper;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,7 +28,7 @@ public final class Events extends MyBatisBase<Event, EventExample, EventMapper> 
   private final SqlSessionFactory sessionFactory;
 
   public Events(SqlSessionFactory main) {
-    sessionFactory = main;
+    sessionFactory = checkNotNull(main);
   }
 
   public Long newId() {

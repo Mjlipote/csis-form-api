@@ -1,5 +1,7 @@
 package tw.edu.ym.csis.formapi.helper;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import tw.edu.ym.csis.maindb.dao.FormMapper;
@@ -18,7 +20,7 @@ public final class Forms extends MyBatisBase<Form, FormExample, FormMapper> {
   private final SqlSessionFactory sessionFactory;
 
   public Forms(SqlSessionFactory main) {
-    sessionFactory = main;
+    sessionFactory = checkNotNull(main);
   }
 
   public Form findById(final Long id) {

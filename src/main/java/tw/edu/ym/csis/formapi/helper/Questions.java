@@ -1,5 +1,6 @@
 package tw.edu.ym.csis.formapi.helper;
 
+import static com.google.common.base.Preconditions.checkNotNull;
 import static net.sf.rubycollect4j.RubyCollections.ra;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public final class Questions extends
   private final SqlSessionFactory sessionFactory;
 
   public Questions(SqlSessionFactory meta) {
-    sessionFactory = meta;
+    sessionFactory = checkNotNull(meta);
   }
 
   public List<Question> findAllBySections(List<Section> sections) {

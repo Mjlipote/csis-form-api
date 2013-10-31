@@ -1,5 +1,6 @@
 package tw.edu.ym.csis.formapi;
 
+import static com.google.common.base.Preconditions.checkNotNull;
 import static tw.edu.ym.csis.formapi.CsisFormStatus.DATARECORD_NOT_FOUND;
 import static tw.edu.ym.csis.formapi.CsisFormStatus.FORMVERSION_NOT_FOUND;
 import static tw.edu.ym.csis.formapi.CsisFormStatus.MRN_IS_EMPTY;
@@ -42,8 +43,8 @@ public final class CsisFormApi {
   private final SqlSessionFactory meta;
 
   public CsisFormApi(SqlSessionFactory main, SqlSessionFactory meta) {
-    this.main = main;
-    this.meta = meta;
+    this.main = checkNotNull(main);
+    this.meta = checkNotNull(meta);
   }
 
   /**

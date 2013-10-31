@@ -1,5 +1,6 @@
 package tw.edu.ym.csis.formapi;
 
+import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.collect.Maps.newHashMap;
 import static net.sf.rubycollect4j.RubyCollections.Hash;
 import static net.sf.rubycollect4j.RubyCollections.hp;
@@ -46,8 +47,8 @@ public final class FormCRUD {
   private final SqlSessionFactory meta;
 
   public FormCRUD(SqlSessionFactory main, SqlSessionFactory meta) {
-    this.main = main;
-    this.meta = meta;
+    this.main = checkNotNull(main);
+    this.meta = checkNotNull(meta);
   }
 
   /**
